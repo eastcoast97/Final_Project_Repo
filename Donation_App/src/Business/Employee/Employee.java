@@ -9,7 +9,7 @@ package Business.Employee;
  *
  * @author rohinibalasubramanian
  */
-public class employee {
+public class Employee {
     private String name;
     private int id;
     private static int count = 1;
