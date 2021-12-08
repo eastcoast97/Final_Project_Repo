@@ -25,7 +25,7 @@ public class ConfigureSystem {
     
         public static Ecosystem configure(){
             
-     EcoSystem system = Ecosystem.getInstance();
+     Ecosystem system = Ecosystem.getInstance();
         EmployeeDirectory employeeDirectory = system.getEmployeeDirectory();
         if(employeeDirectory == null)
         {
