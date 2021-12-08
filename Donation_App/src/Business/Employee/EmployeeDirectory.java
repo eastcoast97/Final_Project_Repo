@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class EmployeeDirectory {
     private ArrayList<Employee> employeeList;
 
-    public EmployeeDirectory() {
+    public employeeDirectory() {
         employeeList = new ArrayList();
     }
 
