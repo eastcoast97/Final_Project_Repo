@@ -24,7 +24,7 @@ public class Company {
         return CompanyName;
     }
     
-    public Company(UserAccount ua,int CompanyName)
+    public Company(UserAccount ua,String CompanyName)
     {
         this.userAccount = ua;
         this.CompanyName = CompanyName;
