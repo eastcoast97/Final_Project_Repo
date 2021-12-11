@@ -95,6 +95,7 @@ public class ManageSchedulePanel extends javax.swing.JPanel {
         add(donationtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 150, 30));
 
         scheduletbl.setBackground(new java.awt.Color(255, 255, 204));
+        scheduletbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         scheduletbl.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         scheduletbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,6 +108,8 @@ public class ManageSchedulePanel extends javax.swing.JPanel {
                 "Donation_No", "Company", "Venue", "Date", "Schedule"
             }
         ));
+        scheduletbl.setGridColor(new java.awt.Color(0, 0, 0));
+        scheduletbl.setShowGrid(true);
         jScrollPane1.setViewportView(scheduletbl);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 90));
@@ -130,7 +133,7 @@ public class ManageSchedulePanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 530, -1, 50));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel1.setText("Date");
@@ -155,7 +158,7 @@ public class ManageSchedulePanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 522, 120, 60));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 60));
         add(datetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 3, 36)); // NOI18N

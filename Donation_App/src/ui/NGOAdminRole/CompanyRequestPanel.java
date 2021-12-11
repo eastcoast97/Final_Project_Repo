@@ -58,8 +58,10 @@ public class CompanyRequestPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         compreqtbl = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 153));
+        setBackground(new java.awt.Color(51, 51, 51));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 102, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -70,8 +72,10 @@ public class CompanyRequestPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, -1, 60));
 
+        compreqtbl.setBackground(new java.awt.Color(0, 153, 204));
+        compreqtbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         compreqtbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -83,9 +87,11 @@ public class CompanyRequestPanel extends javax.swing.JPanel {
                 "NGO", "Company", "Username", "Email"
             }
         ));
+        compreqtbl.setGridColor(new java.awt.Color(0, 0, 204));
+        compreqtbl.setShowGrid(true);
         jScrollPane1.setViewportView(compreqtbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 340));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, 250));
 
         jButton2.setText("Accept Company Request");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +99,11 @@ public class CompanyRequestPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, -1, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, -1, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/grad4_757x530.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 740, 480));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -126,6 +136,7 @@ public class CompanyRequestPanel extends javax.swing.JPanel {
     private javax.swing.JTable compreqtbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
