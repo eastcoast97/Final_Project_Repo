@@ -42,44 +42,33 @@ public class SponsorWorkArea extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(255, 51, 153)));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setText("Sponsor Companies");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, 48));
 
+        jButton2.setForeground(new java.awt.Color(255, 0, 51));
         jButton2.setText("Logout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 158, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jButton1)))
-                .addContainerGap(575, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jButton1)
-                .addGap(92, 92, 92)
-                .addComponent(jButton2)
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/stock-vector-contract-sponsor-and-ideas-creator-illustration-two-men-in-business-suits-shake-hands-one-side-1660568134_757x530.jpeg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 760, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -101,5 +90,6 @@ public class SponsorWorkArea extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
