@@ -9,8 +9,10 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Ecosystem;
 import java.awt.CardLayout;
 import java.awt.Container;
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
+
 import javax.swing.JPanel;
 
 /**
@@ -29,7 +31,9 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         initComponents();
         this.ecosystem = ecosystem;
         this.container = container;
+
         jLabel1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/man.png").getImage().getScaledInstance(254, 210, Image.SCALE_DEFAULT)));
+
 
     }
 
@@ -41,6 +45,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
 
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -100,11 +105,13 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
         // TODO add your handling code here:
         db4outil.storeSystem(ecosystem);
          
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.first(container);
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
 
@@ -113,5 +120,6 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+
     // End of variables declaration//GEN-END:variables
 }

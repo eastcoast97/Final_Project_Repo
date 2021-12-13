@@ -9,9 +9,11 @@ import Business.Ecosystem;
 import Business.NGO.NGO;
 import Business.NGO.NGODirectory;
 import java.awt.CardLayout;
+
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,8 +36,10 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
         this.container = container;
         ngodir = ecosystem.getEnterpriseDirectory().getNGODirectory();
         populatetable();
+
         jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
         jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/background.jpeg").getImage().getScaledInstance(2609, 1600, Image.SCALE_DEFAULT)));
+
 
     }
 
@@ -48,12 +52,15 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
         jLabel2 = new javax.swing.JLabel();
+
         jScrollPane1 = new javax.swing.JScrollPane();
         ngotbl = new javax.swing.JTable();
         ngotf = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -66,6 +73,7 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(700, 600));
         setPreferredSize(new java.awt.Dimension(700, 600));
         setSize(new java.awt.Dimension(700, 600));
+
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ngotbl.setBackground(new java.awt.Color(255, 204, 204));
@@ -82,8 +90,10 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(ngotbl);
 
+
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 500, 120));
         add(ngotf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 190, 40));
+
 
         jButton1.setText("Add NGO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,15 +101,18 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 300, 40));
 
         jButton2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 100, 50));
 
         jLabel3.setFont(new java.awt.Font("Muna", 3, 18)); // NOI18N
@@ -111,6 +124,7 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/background.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, -30, -1, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -132,9 +146,11 @@ public class ManageNGOsPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable ngotbl;
     private javax.swing.JTextField ngotf;

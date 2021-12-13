@@ -48,21 +48,27 @@ public class TransportManagerWorkArea extends javax.swing.JPanel {
         btnmt = new javax.swing.JButton();
         btnbooking = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
 
         setBackground(new java.awt.Color(0, 204, 204));
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnmt.setText("Manage Transport");
+
         btnmt.setMaximumSize(new java.awt.Dimension(128, 29));
+
         btnmt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmtActionPerformed(evt);
             }
         });
+
         add(btnmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 160, 50));
+
 
         btnbooking.setText("View Booking");
         btnbooking.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +76,9 @@ public class TransportManagerWorkArea extends javax.swing.JPanel {
                 btnbookingActionPerformed(evt);
             }
         });
+
         add(btnbooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 157, 50));
+
 
         jButton1.setText("Logout");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,12 +86,14 @@ public class TransportManagerWorkArea extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 160, 50));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel2.setText("TRANSPORT MANAGER WORK AREA");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookingActionPerformed
@@ -114,7 +124,9 @@ public class TransportManagerWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnbooking;
     private javax.swing.JButton btnmt;
     private javax.swing.JButton jButton1;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+
     // End of variables declaration//GEN-END:variables
 }

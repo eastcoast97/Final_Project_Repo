@@ -12,7 +12,9 @@ import Business.UserAccount.UserAccount;
 import Business.Venue.Venue;
 import Business.Venue.VenueDirectory;
 import java.awt.CardLayout;
+
 import java.awt.Image;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +23,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
+
 import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -48,10 +52,12 @@ public class LocationRequestPanel extends javax.swing.JPanel {
         this.ua = ua;
       //  date.setText(" "+String.valueOf(LocalTime.now().getHour()) + ":"+String.valueOf(LocalTime.now().getMinute()));
         vd = ecosystem.getEnterpriseDirectory().getVenueDirectory();
+
         ngodir = ecosystem.getEnterpriseDirectory().getNGODirectory();
         populatetable();
         jButton3.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.jpeg").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
         jLabel2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/gradnew10.png").getImage().getScaledInstance(1000,900, Image.SCALE_DEFAULT)));
+
 
     }
 
@@ -68,12 +74,14 @@ public class LocationRequestPanel extends javax.swing.JPanel {
         venuereqtbl = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         venuereqtbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -92,7 +100,9 @@ public class LocationRequestPanel extends javax.swing.JPanel {
         venuereqtbl.setShowGrid(true);
         jScrollPane1.setViewportView(venuereqtbl);
 
+
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 630, 90));
+
 
         jButton1.setText("Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +110,9 @@ public class LocationRequestPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 140, 50));
+
 
         jButton2.setText("Reject");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +120,7 @@ public class LocationRequestPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 150, 50));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
@@ -117,11 +130,13 @@ public class LocationRequestPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 100, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/gradnew10.png"))); // NOI18N
@@ -129,6 +144,7 @@ public class LocationRequestPanel extends javax.swing.JPanel {
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         jLabel2.setPreferredSize(new java.awt.Dimension(1000, 900));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -175,9 +191,11 @@ public class LocationRequestPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable venuereqtbl;
     // End of variables declaration//GEN-END:variables

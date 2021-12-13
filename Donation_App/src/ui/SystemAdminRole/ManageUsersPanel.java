@@ -10,9 +10,11 @@ import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import Business.Util.Utility;
 import java.awt.CardLayout;
+
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -38,8 +40,10 @@ public class ManageUsersPanel extends javax.swing.JPanel {
         this.container = container;
         ud = ecosystem.getUserAccountDirectory();
         populatetable();
+
         jLabel4.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/background.jpeg").getImage().getScaledInstance(2609, 1600, Image.SCALE_DEFAULT)));
         jButton1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+
 
     }
 
@@ -52,11 +56,14 @@ public class ManageUsersPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
         jLabel2 = new javax.swing.JLabel();
+
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         manageuserstbl = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -70,15 +77,18 @@ public class ManageUsersPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, 50));
 
         manageuserstbl.setBackground(new java.awt.Color(51, 255, 204));
         manageuserstbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         manageuserstbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -92,7 +102,9 @@ public class ManageUsersPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(manageuserstbl);
 
+
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 540, 220));
+
 
         jButton2.setText("Give access");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +112,7 @@ public class ManageUsersPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 190, 40));
 
         jLabel3.setFont(new java.awt.Font("Microsoft Sans Serif", 3, 24)); // NOI18N
@@ -110,6 +123,7 @@ public class ManageUsersPanel extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/background.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -10, -1, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -158,9 +172,11 @@ public class ManageUsersPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable manageuserstbl;
     // End of variables declaration//GEN-END:variables
