@@ -9,6 +9,8 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Ecosystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +31,8 @@ public class SponsorWorkArea extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.ua = ua;
         this.container = container;
+        jLabel1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/stock-vector-contract-sponsor-and-ideas-creator-illustration-two-men-in-business-suits-shake-hands-one-side-1660568134_757x530.jpeg").getImage().getScaledInstance(730, 360, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -43,6 +47,7 @@ public class SponsorWorkArea extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(255, 51, 153)));
@@ -55,7 +60,7 @@ public class SponsorWorkArea extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, 48));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 170, 48));
 
         jButton2.setForeground(new java.awt.Color(255, 0, 51));
         jButton2.setText("Logout");
@@ -64,11 +69,16 @@ public class SponsorWorkArea extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 158, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 170, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/stock-vector-contract-sponsor-and-ideas-creator-illustration-two-men-in-business-suits-shake-hands-one-side-1660568134_757x530.jpeg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/stock-vector-contract-sponsor-and-ideas-creator-illustration-two-men-in-business-suits-shake-hands-one-side-1660568134_757x530.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 760, 440));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 730, 360));
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Sponsor Dashboard");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -91,5 +101,6 @@ public class SponsorWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

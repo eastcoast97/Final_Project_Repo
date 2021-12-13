@@ -10,8 +10,12 @@ import Business.Ecosystem;
 import Business.Supplier.Order;
 import Business.Supplier.SupplierDirectory;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +39,12 @@ public class OrderStat extends javax.swing.JPanel {
         this.company = company;
         this.ecosystem = ecosystem;
         supplierdir = ecosystem.getEnterpriseDirectory().getSupplierDirectory();
-        populatetable();
+        
+        populatetable();      
+        jLabel5.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/bg.jpeg").getImage().getScaledInstance(800,510, Image.SCALE_DEFAULT)));
+        jButton1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
+
+        
     }
 
     /**
@@ -59,6 +68,13 @@ public class OrderStat extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 153, 204));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        setPreferredSize(new java.awt.Dimension(700, 600));
+        setSize(new java.awt.Dimension(700, 600));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ordertbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,22 +87,32 @@ public class OrderStat extends javax.swing.JPanel {
                 "Equipment", "Supplier", "Status", "Review", "Order_ID", "Logistics", "Updates"
             }
         ));
+        ordertbl.setGridColor(new java.awt.Color(0, 102, 153));
+        ordertbl.setShowGrid(true);
         jScrollPane1.setViewportView(ordertbl);
 
-        jButton1.setText("Back");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 740, 210));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 100, 50));
 
         ordercmbbx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordercmbbxActionPerformed(evt);
             }
         });
+        add(ordercmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 200, -1));
+        add(equipmenttf, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 200, -1));
+        add(supptf, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 200, -1));
 
         jScrollPane2.setViewportView(reviewta);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 290, 97));
 
         jButton2.setText("Update Review");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -94,76 +120,20 @@ public class OrderStat extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, 50));
 
         jLabel1.setText("Order_ID");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
         jLabel2.setText("Equipment");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         jLabel3.setText("Supplier");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(equipmenttf, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(supptf))
-                                .addGap(174, 174, 174)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ordercmbbx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(170, 170, 170))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ordercmbbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(equipmenttf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(supptf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))))
-                .addContainerGap(365, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/bg.jpeg"))); // NOI18N
+        jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 3, 2, 3, new java.awt.Color(0, 0, 0)));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 510));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ordercmbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordercmbbxActionPerformed
@@ -182,13 +152,22 @@ public class OrderStat extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        
         String orderId = (String) ordercmbbx.getSelectedItem();
         Order order = supplierdir.getOrder(orderId);
+        reviewta.setBackground(Color.GRAY);
+        if(order.getStatus().equals("Delivered"))
+        {
+            reviewta.setBackground(Color.WHITE);
         order.setReview(reviewta.getText());
         populatetable();
         equipmenttf.setText("");
         reviewta.setText("");
         supptf.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "Order not yet Delivered for review");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -199,6 +178,7 @@ public class OrderStat extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> ordercmbbx;
@@ -213,8 +193,13 @@ public class OrderStat extends javax.swing.JPanel {
         DefaultComboBoxModel dt = new DefaultComboBoxModel();
         DefaultTableModel df = (DefaultTableModel) ordertbl.getModel();
         df.setRowCount(0);
+        
         for(Order o: orders)
         {
+            if(o.getStatus().equals("Delivered"))
+            {
+                reviewta.setEditable(true);
+            }
             String[] row = {o.getItem(),o.getSupplierName(),o.getStatus(),o.getReview(),String.valueOf(o.getOrderId())
             ,o.getLogistics(),o.getLocaldatetime().toString()};
             df.addRow(row);

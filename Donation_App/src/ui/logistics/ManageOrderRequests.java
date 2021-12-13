@@ -11,9 +11,11 @@ import Business.Supplier.Order;
 import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,6 +43,8 @@ public class ManageOrderRequests extends javax.swing.JPanel {
         sd = ecosystem.getEnterpriseDirectory().getSupplierDirectory();
         logistic = sd.getLogistic(ua);
         populateTable();
+        btnback.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -56,25 +60,29 @@ public class ManageOrderRequests extends javax.swing.JPanel {
         tblOrders = new javax.swing.JTable();
         btnrefresh = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblOrders.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Item", "Receiver", "Status", "Location", "Sender", "Recent Date"
+                "Order ID", "Item", "Sender", "Receiver", "Status", "Recent Date"
             }
         ));
         tblOrders.setGridColor(new java.awt.Color(102, 0, 204));
         tblOrders.setShowGrid(true);
         jScrollPane1.setViewportView(tblOrders);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 106, 563, 220));
 
         btnrefresh.setText("Refresh");
         btnrefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -82,42 +90,20 @@ public class ManageOrderRequests extends javax.swing.JPanel {
                 btnrefreshActionPerformed(evt);
             }
         });
+        add(btnrefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 127, 51));
 
-        btnback.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/back.png")); // NOI18N
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbackActionPerformed(evt);
             }
         });
+        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 69, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel1.setText("MANAGE ORDER REQUESTS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 33, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrefreshActionPerformed
@@ -139,7 +125,7 @@ private void populateTable() {
             if(o.getLogistics().equals(logistic.getLogisticCompany())){
                 if(o.getStatus().equals("Order Accepted")){
                 
-            String[] row = {String.valueOf(o.getOrderId()),o.getCompanyName(),o.getItem(),o.getStatus(),o.getLocation(),o.getSupplierName(),String.valueOf(o.getLocaldatetime())};
+            String[] row = {String.valueOf(o.getOrderId()),o.getItem(),o.getSupplierName(),o.getCompanyName(),o.getStatus(),String.valueOf(o.getLocaldatetime())};
             df.addRow(row);}}
         }
         
@@ -149,6 +135,7 @@ private void populateTable() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnrefresh;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblOrders;
     // End of variables declaration//GEN-END:variables

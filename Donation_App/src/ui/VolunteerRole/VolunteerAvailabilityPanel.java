@@ -10,6 +10,7 @@ import Business.UserAccount.UserAccount;
 import Business.Volunteer.Volunteer;
 import Business.Volunteer.VolunteerDirectory;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.CompanyManager.RequestVolunteerPanel;
@@ -45,6 +47,9 @@ public class VolunteerAvailabilityPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         vd = ecosystem.getEnterpriseDirectory().getVolunteerDirectory();
         volunteer = vd.getVolunteer(ua);
+        jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+        jLabel3.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/vol.jpeg").getImage().getScaledInstance(320, 250, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -68,6 +73,7 @@ public class VolunteerAvailabilityPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 204, 204));
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setPreferredSize(new java.awt.Dimension(700, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(datetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 170, -1));
 
@@ -77,7 +83,7 @@ public class VolunteerAvailabilityPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 233, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 140, 250, -1));
 
         timecmbbx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,20 +101,20 @@ public class VolunteerAvailabilityPanel extends javax.swing.JPanel {
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 263, -1, -1));
 
         jLabel1.setText("Time");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 110, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 40, -1));
 
         jLabel2.setText("Date");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, 26));
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/back.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 70, 40));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 100, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/vol.jpeg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/vol.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
@@ -116,11 +122,11 @@ public class VolunteerAvailabilityPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 320, 250));

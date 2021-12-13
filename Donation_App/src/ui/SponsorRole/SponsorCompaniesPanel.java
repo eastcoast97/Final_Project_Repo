@@ -13,10 +13,12 @@ import Business.Sponsor.Sponsor;
 import Business.Sponsor.SponsorDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -43,6 +45,9 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
         ngodir = ecosystem.getEnterpriseDirectory().getNGODirectory();
         sponsordir = ecosystem.getEnterpriseDirectory().getSponsorDirectory();
         populateNGOcombo();
+       jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/food-back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+       jLabel2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/398128-Background_wallpaper_with_polygons_in_gradient_colors.jpg").getImage().getScaledInstance(5920, 3580, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -62,7 +67,6 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,10 +75,10 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
                 ngocmbbxActionPerformed(evt);
             }
         });
-        add(ngocmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 190, -1));
+        add(ngocmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 190, -1));
 
         jLabel1.setText("NGO Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
 
         sponsortbl.setBackground(new java.awt.Color(255, 153, 153));
         sponsortbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -91,8 +95,8 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(sponsortbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 570, 150));
-        add(sponsortf, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 360, 40));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 570, 150));
+        add(sponsortf, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 370, 40));
 
         jButton1.setText("Offer Amount");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,27 +104,21 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 190, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 190, 40));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 100, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/vecteezy_background-wallpaper-with-polygons-in-gradient-colors_1218819/398128-Background_wallpaper_with_polygons_in_gradient_colors.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/398128-Background_wallpaper_with_polygons_in_gradient_colors.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-390, -370, 5920, 3580));
-
-        jButton3.setText("Back");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, -150, 5920, 3580));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -165,17 +163,10 @@ public class SponsorCompaniesPanel extends javax.swing.JPanel {
         sponsortbl.setModel(df);
     }//GEN-LAST:event_ngocmbbxActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.show(container,"sponsorWorkArea");
-    }//GEN-LAST:event_jButton3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

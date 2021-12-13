@@ -11,9 +11,12 @@ import Business.Supplier.Order;
 import Business.Supplier.Supplier;
 import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -42,6 +45,9 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         supplier = supplierdir.getSupplier(ua);
         populatetable();
         populatecombo();
+        jLabel5.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/background.jpeg").getImage().getScaledInstance(877,670, Image.SCALE_DEFAULT)));
+        jButton1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -67,6 +73,10 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageorderstbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,9 +89,20 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
                 "Equipment_Type", "Quantity", "Company name", "Status", "Review", "Logistics", "Updated date", "Order_ID"
             }
         ));
+        manageorderstbl.setGridColor(new java.awt.Color(0, 0, 0));
+        manageorderstbl.setShowGrid(true);
         jScrollPane1.setViewportView(manageorderstbl);
 
-        jButton1.setText("Back");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 650, 298));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+        jButton1.setPreferredSize(new java.awt.Dimension(100, 50));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 80, 40));
 
         jButton2.setText("Accept");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +110,7 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, 40));
 
         jButton3.setText("Decline");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -96,20 +118,30 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, 40));
 
         orderidcmbbx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderidcmbbxActionPerformed(evt);
             }
         });
+        add(orderidcmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 320, 30));
+        add(companytf, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 310, 20));
 
         jLabel1.setText("Order_ID");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         jLabel2.setText("Company");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, -1, -1));
+        add(equipmenttf, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 310, -1));
+
+        add(logisticscmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 320, -1));
 
         jLabel3.setText("Equipment");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         jLabel4.setText("Logistics");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, -1, -1));
 
         jButton4.setText("Assign");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -117,72 +149,17 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, 120, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(184, 574, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(companytf)
-                            .addComponent(orderidcmbbx, 0, 143, Short.MAX_VALUE)
-                            .addComponent(equipmenttf)
-                            .addComponent(logisticscmbbx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(175, 175, 175))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(297, 297, 297))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(orderidcmbbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
-                        .addGap(22, 22, 22))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(companytf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(equipmenttf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logisticscmbbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jButton4))
-        );
+        jLabel6.setText("MANAGE ORDERS");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/background.jpeg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        jLabel5.setPreferredSize(new java.awt.Dimension(877, 670));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
+        jLabel5.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void orderidcmbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderidcmbbxActionPerformed
@@ -225,9 +202,14 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
         String orderId = df.getValueAt(selectedRow,7).toString();
         Order order = supplierdir.getOrder(orderId);
         order.setStatus("Order Declined");
-        
         populatetable();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.show(container,"supplierWorkSpace");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -241,6 +223,8 @@ public class ManageOrdersPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> logisticscmbbx;
     private javax.swing.JTable manageorderstbl;

@@ -11,17 +11,20 @@ import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Image;
+import static java.lang.System.exit;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import ui.AnalyticsTeam.NgoAnalyticsTeamPanel;
 import ui.CompanyManager.CompanyManagerWorkArea;
 import ui.EquipmentSupplierRole.EquipmentSupplierWorkSpace;
 import ui.LocationManagerRole.LocationManagerWorkArea;
 import ui.NGOAdminRole.AdminWorkArea;
 import ui.SponsorRole.SponsorWorkArea;
 import ui.SystemAdminRole.SystemAdminWorkArea;
+import ui.TransportService.TransportManagerWorkArea;
 import ui.VolunteerRole.VolunteerWorkArea;
 import ui.logistics.LogisticsWorkArea;
 
@@ -39,25 +42,27 @@ public class MainJFrame extends javax.swing.JFrame {
      UserAccountDirectory useraccountDirectory;
      UserAccount ua;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-     Date date;
+     
      
     public MainJFrame() {
         initComponents();
-       // dB4OUtil.removeEntries();
+      
         ecosystem = dB4OUtil.retrieveSystem();
        useraccountDirectory = ecosystem.getUserAccountDirectory();
-       // this.setSize(1680, 1050);
-         //date.setText(" "+String.valueOf(LocalTime.now().getHour()) + ":"+String.valueOf(LocalTime.now().getMinute()));
-         //lblHome.setIcon(new ImageIcon(new ImageIcon("src/Business/Util/Icon/Home.png").getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT)));
+      
+          date.setText(" "+String.valueOf(LocalTime.now().getHour()) + ":"+String.valueOf(LocalTime.now().getMinute()));
+          //lblHome.setIcon(new ImageIcon(new ImageIcon("src/Business/Util/Icon/Home.png").getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT)));
         ArrayList<UserAccount> users = useraccountDirectory.getUserAccountList();
         
          for(UserAccount ua: users)
          {
-             if(ua.getUsername().equals("doctor4") || ua.getUsername().equals("doctor3"))
+             if(ua.getUsername().equals("volunteer4") || ua.getUsername().equals("volunteer3"))
              {
-                 ua.setEmail("charan.guttikonda@gmail.com");
+                 ua.setEmail("sarvesh28zeke@gmail.com");
              }
          }
+        jLabel4.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/donations-charity-red-gray-heart-illustration-background-simple-outline-design-clean-73540164_1_520x300.jpeg").getImage().getScaledInstance(520, 300, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -74,51 +79,55 @@ public class MainJFrame extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         usernametf = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        passtf = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        passtf1 = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(630, 530));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         container.setLayout(new java.awt.CardLayout());
 
-        MainPanel.setBackground(new java.awt.Color(0, 0, 0));
-        MainPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 102, 0)));
+        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        MainPanel.add(usernametf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 100, -1));
+        MainPanel.add(usernametf, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 290, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        MainPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 100, 30));
-        MainPanel.add(passtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 100, -1));
+        MainPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 100, 40));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        MainPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 100, -1));
+        MainPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 100, 40));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         jLabel1.setText("Username:");
-        MainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 80, 20));
+        MainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 20));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         jLabel2.setText("Password:");
-        MainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 80, 20));
+        MainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 80, 20));
 
         jButton3.setForeground(new java.awt.Color(255, 51, 51));
         jButton3.setText("Exit");
@@ -127,22 +136,35 @@ public class MainJFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        MainPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 100, -1));
+        MainPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 100, 40));
 
-        jLabel3.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 36)); // NOI18N
-        jLabel3.setText("Your love for the people!");
-        MainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 370, -1));
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        MainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 580, 560));
-
+        jButton4.setBackground(new java.awt.Color(0, 204, 255));
         jButton4.setText("Activate");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        MainPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, -1, -1));
+        MainPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, 40));
+
+        jLabel3.setFont(new java.awt.Font("Menlo", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel3.setText("Your love for the people!");
+        MainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 200, 30));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/donations-charity-red-gray-heart-illustration-background-simple-outline-design-clean-73540164_1_520x300.jpeg"))); // NOI18N
+        MainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 520, 280));
+        MainPanel.add(passtf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 290, -1));
+
+        jLabel5.setFont(new java.awt.Font("Monospaced", 3, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 51, 102));
+        jLabel5.setText("CHARITY DONATION SYSTEM ");
+        MainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 530, -1));
+
+        date.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        date.setText("<Date Time>");
+        MainPanel.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 180, 30));
 
         container.add(MainPanel, "card2");
 
@@ -154,7 +176,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String username = usernametf.getText();
-        String password = passtf.getText();
+        String password = passtf1.getText();
        
         
         if(useraccountDirectory.authenticateUseraccount(username, password))
@@ -207,52 +229,48 @@ public class MainJFrame extends javax.swing.JFrame {
             crdLyt.show(container,"sponsorWorkArea");
         }
         
-        if(ua.getRole().toString().equals("Business.Role.EquipmentSupplierRole"))
-        {
-            EquipmentSupplierWorkSpace swa = new EquipmentSupplierWorkSpace(container, ua,ecosystem);
-            container.add("supplierWorkarea",swa);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.show(container,"supplierWorkarea");
-        }
+
         
          if(ua.getRole().toString().equals("Business.Role.SupplierRole"))
         {
             EquipmentSupplierWorkSpace swa = new EquipmentSupplierWorkSpace(container, ua,ecosystem);
-            container.add("supplierWorkarea",swa);
+            container.add("supplierWorkSpace",swa);
             CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.show(container,"supplierWorkarea");
+            crdLyt.show(container,"supplierWorkSpace");
         }
-//        
-//        if(ua.getRole().toString().equals("Business.Role.DataAnalystRole"))
-//        {
-//            AnalystWorkspace aw = new AnalystWorkspace(container,ecosystem);
-//            container.add("analyst",aw);
-//            CardLayout crdLyt = (CardLayout) container.getLayout();
-//            crdLyt.show(container,"analyst");
-//        }
-//        
-        if(ua.getRole().toString().equals("Business.Role.LogisticRole"))
+         
+         if(ua.getRole().toString().equals("Business.Role.LogisticRole"))
         {
-            LogisticsWorkArea lw = new LogisticsWorkArea(container,ua,ecosystem);
-            container.add("logistic",lw);
+            LogisticsWorkArea lwaa = new LogisticsWorkArea(container,ua,ecosystem);
+            container.add("logisticWorkArea",lwaa);
             CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.show(container,"logistic");
+            crdLyt.show(container,"logisticWorkArea");
         }
-//        
-//        if(ua.getRole().toString().equals("Business.Role.TravelTransportRole"))
-//        {
-//            TravelManagerWorkspace trw = new TravelManagerWorkspace(container,ua,ecosystem);
-//            container.add("travelTransport",trw);
-//            CardLayout crdLyt = (CardLayout) container.getLayout();
-//            crdLyt.show(container,"travelTransport");
-//        }
-//        
-//       }
+        
+        if(ua.getRole().toString().equals("Business.Role.AnalyticsteamRole"))
+        {
+            NgoAnalyticsTeamPanel atp = new NgoAnalyticsTeamPanel(container,ecosystem);
+            container.add("analytics",atp);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.show(container,"analytics");
+        }
+       
+        
+        if(ua.getRole().toString().equals("Business.Role.TravelRole"))
+        {
+            TransportManagerWorkArea tm = new TransportManagerWorkArea(container,ua,ecosystem);
+            container.add("transportManager",tm);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.show(container,"transportManager");
+        }
+       
+       }
         else
-          //  JOptionPane.showMessageDialog(this, "Invalid credentials");
+            
+        JOptionPane.showMessageDialog(this, "Invalid credentials");
         usernametf.setText(null);
-        passtf.setText(null);
-    }
+        passtf1.setText(null);
+    
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -267,6 +285,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -315,6 +334,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel container;
+    private javax.swing.JLabel date;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -323,8 +343,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField passtf;
+    private javax.swing.JPasswordField passtf1;
     private javax.swing.JTextField usernametf;
     // End of variables declaration//GEN-END:variables
 }

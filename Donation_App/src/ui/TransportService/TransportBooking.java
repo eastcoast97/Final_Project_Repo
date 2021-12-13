@@ -11,11 +11,16 @@ import Business.Ecosystem;
 import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+
+import java.awt.Image;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -44,6 +49,10 @@ public class TransportBooking extends javax.swing.JPanel {
         supplierdir = ecosystem.getEnterpriseDirectory().getSupplierDirectory();
         d = supplierdir.getTravelTransport(ua);
         populateTable();
+
+        btnback.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+
+
     }
 
     /**
@@ -61,9 +70,15 @@ public class TransportBooking extends javax.swing.JPanel {
         btnreject = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
 
+        jLabel1 = new javax.swing.JLabel();
+
         setBackground(new java.awt.Color(204, 204, 255));
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setPreferredSize(new java.awt.Dimension(700, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 204, 204));
+
 
         tblViewBooking.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         tblViewBooking.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,7 +96,9 @@ public class TransportBooking extends javax.swing.JPanel {
         tblViewBooking.setShowGrid(true);
         jScrollPane1.setViewportView(tblViewBooking);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 91, 527, 176));
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 527, 100));
+
 
         btnaccept.setText("Accept ");
         btnaccept.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +106,9 @@ public class TransportBooking extends javax.swing.JPanel {
                 btnacceptActionPerformed(evt);
             }
         });
-        add(btnaccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 122, 40));
+
+        add(btnaccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 122, 40));
+
 
         btnreject.setText("Reject");
         btnreject.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +116,24 @@ public class TransportBooking extends javax.swing.JPanel {
                 btnrejectActionPerformed(evt);
             }
         });
-        add(btnreject, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 122, 40));
 
-        btnback.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/back.png")); // NOI18N
+        add(btnreject, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 122, 40));
+
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbackActionPerformed(evt);
             }
         });
-        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 50));
+
+        add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 100, 50));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setText("Transport Booking ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
@@ -166,6 +194,9 @@ private void populateTable() {
     private javax.swing.JButton btnaccept;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnreject;
+
+    private javax.swing.JLabel jLabel1;
+
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblViewBooking;
     // End of variables declaration//GEN-END:variables
