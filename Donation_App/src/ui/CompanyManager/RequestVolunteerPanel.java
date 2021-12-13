@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import Business.Volunteer.Volunteer;
 import Business.Volunteer.VolunteerDirectory;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -33,7 +35,6 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
      */
     JPanel container;
     UserAccount ua;
-    Date date;
     Ecosystem ecosystem;
     VolunteerDirectory vd;
     NGODirectory ngodir;
@@ -49,6 +50,9 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
         vd = ecosystem.getEnterpriseDirectory().getVolunteerDirectory();
         ngodir = ecosystem.getEnterpriseDirectory().getNGODirectory();
         populatecombo();
+        jLabel5.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/WE_Volunteer_666x350.jpeg").getImage().getScaledInstance(670,270, Image.SCALE_DEFAULT)));
+        jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -62,6 +66,7 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
 
         designationcmbbx = new javax.swing.JComboBox<>();
         volunteercmbbx = new javax.swing.JComboBox<>();
+        datetf = new com.toedter.calendar.JDateChooser();
         timecmbbx = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -70,15 +75,25 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        datetf = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 153, 153));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        add(designationcmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 113, 206, 36));
+        designationcmbbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                designationcmbbxActionPerformed(evt);
+            }
+        });
+        add(designationcmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 206, 36));
 
-        add(volunteercmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 185, 206, -1));
+        add(volunteercmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 206, -1));
 
-        add(timecmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 346, 206, -1));
+        datetf.setBackground(new java.awt.Color(255, 255, 255));
+        add(datetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 400, 190, -1));
+
+        add(timecmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 206, -1));
 
         jButton1.setText("View Slots");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -86,27 +101,27 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 345, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, -1, 40));
 
         jLabel1.setText("Get Designation");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 122, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
 
         jLabel2.setText("Select Date");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 280, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
 
         jLabel3.setText("Select Time");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 350, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
 
         jLabel4.setText("Get Volunteer");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 189, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
 
-        jButton2.setText("Back");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 100, 50));
 
         jButton3.setText("Request Volunteer");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -114,8 +129,11 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 421, -1, -1));
-        add(datetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 180, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, 200, 50));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/WE_Volunteer_666x350.jpeg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 670, 270));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -169,6 +187,18 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
          JOptionPane.showMessageDialog(this, "Appointment Scheduled");
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void designationcmbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_designationcmbbxActionPerformed
+        // TODO add your handling code here:
+         String designation = (String) designationcmbbx.getSelectedItem();
+        ArrayList<Volunteer> volunteerlist  = vd.getvolunteersByDesignation(designation);
+        DefaultComboBoxModel df = new DefaultComboBoxModel();
+        for(Volunteer v: volunteerlist)
+        {
+            df.addElement(v.getvolunteerName());
+        }
+        volunteercmbbx.setModel(df);
+    }//GEN-LAST:event_designationcmbbxActionPerformed
+
     private void populatecombo() {
         
         ArrayList<Volunteer> volunteers = vd.getVolunteers();
@@ -202,6 +232,7 @@ public class RequestVolunteerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> timecmbbx;
     private javax.swing.JComboBox<String> volunteercmbbx;
     // End of variables declaration//GEN-END:variables

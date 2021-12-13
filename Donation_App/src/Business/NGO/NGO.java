@@ -206,29 +206,29 @@ public class NGO {
     }
     
     
-//     public HashMap<String,Integer> winByLocation(String Location)
-//     {
-//         HashMap<String,Integer> stats = new HashMap<String,Integer>();
-//         for(Match m : matches)
-//         {
-//             if(m.getVenue() == null) continue;
-//             if(m.getVenue().getLocation().equals(Location))
-//             {
-//             if(m.getMatchWinner() == null) continue;
-//             else
-//             {
-//                if(stats.containsKey(m.getMatchWinner())) 
-//                {
-//                    stats.put(m.getMatchWinner(), stats.get(m.getMatchWinner()) + 1);
-//                }
-//                else
-//                    stats.put(m.getMatchWinner(),1);
-//             }
-//             }
-//         }
-//         return stats;
-//         
-//     }
+     public HashMap<String,Integer> donationByLocation(String Location)
+     {
+         HashMap<String,Integer> statistics = new HashMap<String,Integer>();
+         for(Donation d : donations)
+         {
+             if(d.getVenue() == null) continue;
+             if(d.getVenue().getLocation().equals(Location))
+             {
+             if(d.getComp().getCompanyName()== null) continue;
+             else
+             {
+                if(statistics.containsKey(d.getComp().getCompanyName())) 
+                {
+                    statistics.put(d.getComp().getCompanyName(), statistics.get(d.getComp().getCompanyName()) + 1);
+                }
+                else
+                    statistics.put(d.getComp().getCompanyName(),1);
+             }
+             }
+         }
+         return statistics;
+         
+     }
 }
 
 

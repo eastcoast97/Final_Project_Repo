@@ -12,8 +12,10 @@ import Business.Sponsor.Sponsor;
 import Business.Sponsor.SponsorDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -42,6 +44,10 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
         sponsordir = ecosystem.getEnterpriseDirectory().getSponsorDirectory();
         company = ngodir.getCompany(ua);
         populatetable();
+        
+        jLabel2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/20943645_600x400.jpeg").getImage().getScaledInstance(690,350, Image.SCALE_DEFAULT)));
+        jButton3.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -58,9 +64,14 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        sponsorreqtbl.setBackground(new java.awt.Color(255, 51, 102));
+        sponsorreqtbl.setBorder(new javax.swing.border.MatteBorder(null));
         sponsorreqtbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -74,7 +85,7 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(sponsorreqtbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 34, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 480, 80));
 
         jButton1.setText("Accept Sponsor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +93,7 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 150, 50));
 
         jButton2.setText("Decline Sponsor");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -90,15 +101,19 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 150, 50));
 
-        jButton3.setText("Back");
+        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 100, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/20943645_600x400.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -136,6 +151,7 @@ public class SponsorOfferedPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable sponsorreqtbl;
     // End of variables declaration//GEN-END:variables

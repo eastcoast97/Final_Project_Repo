@@ -10,7 +10,9 @@ import Business.Supplier.Supplier;
 import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,6 +38,9 @@ public class ManageStocksPanel extends javax.swing.JPanel {
         supplierdir = ecosystem.getEnterpriseDirectory().getSupplierDirectory();
         supplier = supplierdir.getSupplier(ua);
         populatetable();
+        jLabel3.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/stock2_820x350.jpeg").getImage().getScaledInstance(760,260, Image.SCALE_DEFAULT)));
+        jButton1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.jpeg").getImage().getScaledInstance(100,50, Image.SCALE_DEFAULT)));
+
     }
 
     /**
@@ -55,7 +60,13 @@ public class ManageStocksPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 102, 102));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Equipmenttbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         Equipmenttbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -67,14 +78,22 @@ public class ManageStocksPanel extends javax.swing.JPanel {
                 "Equipment_Type", "Availability"
             }
         ));
+        Equipmenttbl.setGridColor(new java.awt.Color(0, 153, 204));
+        Equipmenttbl.setShowGrid(true);
         jScrollPane1.setViewportView(Equipmenttbl);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 570, 150));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 100, 50));
+        add(equiptypetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 270, -1));
+        add(availtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 270, -1));
 
         jButton2.setText("Add to Stocks");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -82,56 +101,17 @@ public class ManageStocksPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 120, 40));
 
         jLabel1.setText("Equipment_Type");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
 
         jLabel2.setText("Availability");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 132, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(equiptypetf)
-                            .addComponent(availtf, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(67, 67, 67)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(equiptypetf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(availtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(29, 29, 29))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/stock2_820x350.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 760, 260));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -152,7 +132,7 @@ public class ManageStocksPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
             CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.show(container,"supplierWorkArea");
+            crdLyt.show(container,"supplierWorkSpace");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -164,6 +144,7 @@ public class ManageStocksPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

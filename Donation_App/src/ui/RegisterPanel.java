@@ -32,12 +32,17 @@ import Business.Venue.Venue;
 import Business.Venue.VenueDirectory;
 import Business.Volunteer.Volunteer;
 import Business.Volunteer.VolunteerDirectory;
+import Business.validations.Stringverfier;
+import Business.validations.everifier;
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -54,6 +59,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     Ecosystem ecosystem;
     NGODirectory ngodir;
     JPanel container;
+
     public RegisterPanel(JPanel container, Ecosystem ecosystem) {
         initComponents();
         this.ecosystem = ecosystem;
@@ -65,6 +71,29 @@ public class RegisterPanel extends javax.swing.JPanel {
                 supplierpanel.setVisible(false);
                 companypanel.setVisible(false);
                 venuepanel.setVisible(false);
+                addVerifiers();
+        jLabel13.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/man.png").getImage().getScaledInstance(230, 200, Image.SCALE_DEFAULT)));
+        jLabel14.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/des.png").getImage().getScaledInstance(220, 200, Image.SCALE_DEFAULT)));
+        jLabel15.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/build.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
+        jLabel16.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/spon.png").getImage().getScaledInstance(220, 200, Image.SCALE_DEFAULT)));
+        jLabel17.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/city.jpeg").getImage().getScaledInstance(220, 200, Image.SCALE_DEFAULT)));
+        jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/req.jpeg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT)));
+        jButton1.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT)));
+
+
+    }
+    private void addVerifiers() {
+        InputVerifier Stringverfier = new Stringverfier();
+        nametf.setInputVerifier(Stringverfier);
+        companytf.setInputVerifier(Stringverfier);
+        designationtf.setInputVerifier(Stringverfier);
+        citytf.setInputVerifier(Stringverfier);
+        statetf.setInputVerifier(Stringverfier);
+        venuenametf.setInputVerifier(Stringverfier);
+        sponsuptf.setInputVerifier(Stringverfier);
+        InputVerifier everifier = new everifier();
+        emailtf.setInputVerifier(everifier);
+        
     }
 
     /**
@@ -114,8 +143,11 @@ public class RegisterPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 102, 102));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setSize(new java.awt.Dimension(760, 680));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rolecmbbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Analyst admin", "Volunteer", "Supplier", "Sponsor", "NGO Admin", "Company Manager", "Venue Manager", "Logistics", " ", " " }));
@@ -124,9 +156,11 @@ public class RegisterPanel extends javax.swing.JPanel {
                 rolecmbbxActionPerformed(evt);
             }
         });
-        add(rolecmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 150, -1));
+        add(rolecmbbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 210, 40));
 
         infopanel.setBackground(new java.awt.Color(255, 255, 255));
+        infopanel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        infopanel.setPreferredSize(new java.awt.Dimension(235, 205));
         infopanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         infopanel.add(nametf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 88, -1));
         infopanel.add(usernametf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 88, -1));
@@ -145,23 +179,24 @@ public class RegisterPanel extends javax.swing.JPanel {
         infopanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/man.png")); // NOI18N
-        infopanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, 190));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/man.png"))); // NOI18N
+        infopanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 200));
 
         add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, 200));
 
         Volunteerpanel.setBackground(new java.awt.Color(255, 204, 204));
         Volunteerpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Volunteerpanel.add(designationtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 93, -1));
+        Volunteerpanel.add(designationtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 100, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setText("Designation");
         Volunteerpanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/des.png")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/des.png"))); // NOI18N
         jLabel14.setText("jLabel14");
-        Volunteerpanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 230, 280));
+        jLabel14.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        Volunteerpanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 200));
 
         add(Volunteerpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 220, 200));
 
@@ -180,22 +215,24 @@ public class RegisterPanel extends javax.swing.JPanel {
         jLabel6.setText("NGO");
         companypanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/build.png")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/build.png"))); // NOI18N
         jLabel15.setText("jLabel15");
-        companypanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 200));
+        jLabel15.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        companypanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 200));
 
         add(companypanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 200, 200));
 
         supplierpanel.setBackground(new java.awt.Color(255, 255, 255));
         supplierpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        supplierpanel.add(sponsuptf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 91, -1));
+        supplierpanel.add(sponsuptf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel4.setText("Sponsor");
-        supplierpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jLabel4.setText("Supplier/Sponsor");
+        supplierpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/spon.png")); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/spon.png"))); // NOI18N
+        jLabel16.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         supplierpanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 200));
 
         add(supplierpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 220, 200));
@@ -204,7 +241,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         venuepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         venuepanel.add(venuenametf, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 61, 96, -1));
         venuepanel.add(citytf, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 105, 96, -1));
-        venuepanel.add(statetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 96, -1));
+        venuepanel.add(statetf, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 144, 96, -1));
 
         jLabel8.setText("Venue");
         venuepanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
@@ -215,14 +252,21 @@ public class RegisterPanel extends javax.swing.JPanel {
         jLabel10.setText("State");
         venuepanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 148, -1, -1));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/city.jpeg")); // NOI18N
-        venuepanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, -1));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/city.jpeg"))); // NOI18N
+        jLabel17.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        venuepanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 200));
 
         add(venuepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 220, 200));
 
-        Logisticspanel.setBackground(new java.awt.Color(255, 255, 204));
+        Logisticspanel.setBackground(new java.awt.Color(255, 153, 0));
+        Logisticspanel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
 
-        logisticscmbbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Travel", "Cargo" }));
+        logisticscmbbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Travel", "Care Package" }));
+        logisticscmbbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logisticscmbbxActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Logistics ");
 
@@ -237,8 +281,9 @@ public class RegisterPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LogisticspanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(logisticscompanytf, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logisticscompanytf, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(LogisticspanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jLabel12)
@@ -257,27 +302,30 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addGroup(LogisticspanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logisticscmbbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         add(Logisticspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 210, 200));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/req.jpeg")); // NOI18N
-        jButton2.setText("Request");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/req.jpeg"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 160, 60));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 160, 60));
 
-        jButton1.setText(">> Back");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 629, 100, 50));
+
+        jLabel18.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel18.setText("REGISTER INFORMATION");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void rolecmbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolecmbbxActionPerformed
@@ -419,14 +467,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                    Venue venue = new Venue(ua,venuenametf.getText(),citytf.getText());
                    vendir.addVenue(venue);
                 }
-//               if(roleSelect.equals("Equipment Supplier"))
-//                {
-//                   role = new SupplierRole();
-//                   ua = ud.accessUseraccountRequest(usernametf.getText(), employee, role);
-//                   ua.setEmail(emailtf.getText());
-//                   Supplier supplier = new Supplier(ua,sponsuptf.getText());
-//                   suppDir.addSupplier(supplier);
-//                }
+//            
                if(roleSelect.equals("Sponsor"))
                 {
                    role = new SponsorRole();
@@ -452,14 +493,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                    ngo.addCompanyRequest(comp);
                 }
                 
-//                if(roleSelect.equals("Equipment Supplier"))
-//                {
-//                   role = new SupplierRole();
-//                   ua = ud.accessUseraccountRequest(usernametf.getText(), employee, role);
-//                   ua.setEmail(emailtf.getText());
-//                   Supplier supplier = new Supplier(ua, sponsuptf.getText());
-//                   suppDir.addSupplier(supplier);
-//                }
+//                
 //                
                 if(roleSelect.equals("Supplier"))
                 {
@@ -479,7 +513,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 
                 if(roleSelect.equals("Logistics"))
                 {
-                    if(((String) logisticscmbbx.getSelectedItem()).equals("Cargo"))
+                    if(((String) logisticscmbbx.getSelectedItem()).equals("Care Package"))
                     {
                    role = new LogisticRole();
                    ua = ud.accessUseraccountRequest(usernametf.getText(), employee, role);
@@ -511,6 +545,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         designationtf.setText("");
         emailtf.setText("");
         //txtHsptl.setText("");
+        venuenametf.setText("");
         logisticscompanytf.setText("");
         nametf.setText("");
         sponsuptf.setText("");
@@ -519,6 +554,10 @@ public class RegisterPanel extends javax.swing.JPanel {
         usernametf.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void logisticscmbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logisticscmbbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logisticscmbbxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -541,6 +580,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
