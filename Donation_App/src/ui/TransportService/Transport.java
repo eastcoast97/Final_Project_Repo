@@ -11,7 +11,11 @@ import Business.Ecosystem;
 import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+
+import java.awt.Image;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
+
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,6 +42,10 @@ public class Transport extends javax.swing.JPanel {
         supplierdir = ecosystem.getEnterpriseDirectory().getSupplierDirectory();
         d = supplierdir.getTravelTransport(ua);
         populateSelect();
+
+        jButton2.setIcon(new ImageIcon(new ImageIcon("src/Business/Icon/back.png").getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT)));
+
+
         
     }
 
@@ -59,9 +67,14 @@ public class Transport extends javax.swing.JPanel {
         tfau = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
+        jLabel3 = new javax.swing.JLabel();
+
         setBackground(new java.awt.Color(0, 153, 153));
         setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        setPreferredSize(new java.awt.Dimension(700, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblTransport.setBackground(new java.awt.Color(255, 255, 204));
 
         tblTransport.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         tblTransport.setModel(new javax.swing.table.DefaultTableModel(
@@ -79,7 +92,9 @@ public class Transport extends javax.swing.JPanel {
         tblTransport.setShowGrid(true);
         jScrollPane1.setViewportView(tblTransport);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 74, 334, 163));
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 500, 100));
+
 
         jButton1.setText("Add Transport");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,23 +102,32 @@ public class Transport extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 50));
+
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, 50));
 
         jLabel1.setText("Transport Type");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 110, -1));
 
         jLabel2.setText("Available Units");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 110, -1));
-        add(tftt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 190, -1));
-        add(tfau, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 190, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 110, -1));
+        add(tftt, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 190, -1));
+        add(tfau, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 190, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/sarveshzeke/Downloads/back.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Icon/back.png"))); // NOI18N
+
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 40));
+
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 100, 50));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
+        jLabel3.setText("TRANSPORT ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 190, -1));
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -142,6 +166,9 @@ private void populateSelect() {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+
+    private javax.swing.JLabel jLabel3;
+
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTransport;
     private javax.swing.JTextField tfau;
